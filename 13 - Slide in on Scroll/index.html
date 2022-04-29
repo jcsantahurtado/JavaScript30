@@ -56,13 +56,13 @@
         timeout = setTimeout(later, wait);
         if (callNow) func.apply(context, args);
       };
-    };
+    }
 
     const sliderImages = document.querySelectorAll('.slide-in');
 
-    function checkSlide() {
+    function checkSlide(e) {
       sliderImages.forEach(sliderImage => {
-        // half way through the image
+        // halfway through the image
         const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
         // bottom of the image
         const imageBottom = sliderImage.offsetTop + sliderImage.height;
