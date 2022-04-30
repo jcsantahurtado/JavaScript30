@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>JS Reference VS Copy</title>
 </head>
+
 <body>
 
   <script>
     // start with strings, numbers and booleans
-    // let age = 100;
-    // let age2 = age;
+    // let age = 22;
+    // let age2 = 44;
     // console.log(age, age2);
-    // age = 200;
+    // age = 23;
     // console.log(age, age2);
 
-    // let name = 'Wes';
-    // let name2 = name;
+    // let name = 'Juan';
+    // let name2 = 'Carlos';
     // console.log(name, name2);
-    // name = 'wesley';
+    // name = 'J';
     // console.log(name, name2);
 
     // Let's say we have an array
@@ -25,10 +27,10 @@
 
     // and we want to make a copy of it.
     const team = players;
+    console.log(team, players);
 
-    console.log(players, team);
     // You might think we can just do something like this:
-    // team[3] = 'Lux';
+    // team[3] = 'Juan';
 
     // however what happens when we update that array?
 
@@ -48,10 +50,12 @@
 
     // or use the new ES6 Spread
     const team4 = [...players];
-    team4[3] = 'heeee hawww';
+    team4[3] = 'heee hawww';
     console.log(team4);
 
     const team5 = Array.from(players);
+    team5[2] = 'cool';
+    console.log(team5);
 
     // now when we update it, the original one isn't changed
 
@@ -59,41 +63,38 @@
 
     // with Objects
     const person = {
-      name: 'Wes Bos',
-      age: 80
+      name: 'Juan Santa',
+      age: 22
     };
 
     // and think we make a copy:
     // const captain = person;
-    // captain.number = 99;
+    // captain.number = 1;
 
     // how do we take a copy instead?
-    const cap2 = Object.assign({}, person, { number: 99, age: 12 });
+    const cap2 = Object.assign({}, person, { number: 1, age: 44 });
     console.log(cap2);
 
     // We will hopefully soon see the object ...spread
-    // const cap3 = {...person};
+    const cap3 = { ...person }
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
-
-    const wes = {
-      name: 'Wes',
-      age: 100,
+    const juan = {
+      name: 'Juan',
+      age: 22,
       social: {
-        twitter: '@wesbos',
-        facebook: 'wesbos.developer'
+        twitter: '@jcsantahurtado',
+        linkedin: 'juan.developer',
       }
-    };
-
+    }
     console.clear();
-    console.log(wes);
+    console.log(juan);
 
-    const dev = Object.assign({}, wes);
-
-    const dev2 = JSON.parse(JSON.stringify(wes));
-
+    const dev = Object.assign({}, juan);
+    const dev2 = JSON.parse(JSON.stringify(juan));
 
   </script>
 
 </body>
+
 </html>
